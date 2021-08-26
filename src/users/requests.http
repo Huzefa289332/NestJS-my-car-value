@@ -1,23 +1,23 @@
 ### Create a new user
-POST http://localhost:3000/auth/signup
+POST http://localhost:3005/auth/signup
 Content-Type: application/json
 
 {
-  "email": "test@test.com",
+  "email": "test1@test.com",
   "password": "12345678"
 }
 
 ### Signin as an existing user
-POST http://localhost:3000/auth/signin
+POST http://localhost:3005/auth/signin
 Content-Type: application/json
 
 {
-  "email": "test@test.com",
+  "email": "test1@test.com",
   "password": "12345678"
 }
 
 ### Get the currently signed in user
-GET http://localhost:3000/auth/whoami
+GET http://localhost:3005/auth/whoami
 
 ### Sign out
 POST http://localhost:3000/auth/signout
