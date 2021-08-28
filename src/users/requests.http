@@ -3,7 +3,7 @@ POST http://localhost:3005/auth/signup
 Content-Type: application/json
 
 {
-  "email": "test1@test.com",
+  "email": "test@test.com",
   "password": "12345678"
 }
 
@@ -12,7 +12,7 @@ POST https://floating-scrubland-41388.herokuapp.com/auth/signin
 Content-Type: application/json
 
 {
-  "email": "test1@test.com",
+  "email": "test@test.com",
   "password": "12345678"
 }
 

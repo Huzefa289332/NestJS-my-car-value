@@ -16,15 +16,33 @@ const cookieSession = require('cookie-session');
       isGlobal: true,
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      url: process.env.DATABASE_URL,
-      entities: [User, Report],
-      synchronize: true,
-      ssl: {
-        rejectUnauthorized: false,
+
+    TypeOrmModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (config: ConfigService) => {
+        const isDeveOrTest =
+          process.env.NODE_ENV === 'development' ||
+          process.env.NODE_ENV === 'test';
+
+        return isDeveOrTest
+          ? {
+              type: 'sqlite',
+              database: config.get<string>('DB_NAME'),
+              synchronize: true,
+              entities: [User, Report],
+            }
+          : {
+              type: 'postgres',
+              url: config.get<string>('DATABASE_URL'),
+              entities: [User, Report],
+              synchronize: true,
+              ssl: {
+                rejectUnauthorized: false,
+              },
+            };
       },
     }),
+
     UsersModule,
     ReportsModule,
   ],
