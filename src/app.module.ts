@@ -20,6 +20,7 @@ const cookieSession = require('cookie-session');
       type: 'postgres',
       url: process.env.DATABASE_URL,
       entities: [User, Report],
+      synchronize: true,
       ssl: {
         rejectUnauthorized: false,
       },

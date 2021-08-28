@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ### Signin as an existing user
-POST http://localhost:3005/auth/signin
+POST https://floating-scrubland-41388.herokuapp.com/auth/signin
 Content-Type: application/json
 
 {
