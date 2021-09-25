@@ -1,5 +1,5 @@
 ### Create a new user
-POST http://localhost:3005/auth/signup
+POST https://floating-scrubland-41388.herokuapp.com/auth/signup
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 
 ### Get the currently signed in user
-GET http://localhost:3005/auth/whoami
+GET https://floating-scrubland-41388.herokuapp.com/auth/whoami
 
 ### Sign out
 POST http://localhost:3000/auth/signout
